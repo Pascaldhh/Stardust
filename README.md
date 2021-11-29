@@ -1,1 +1,1 @@
-hotel-stardust
+Stardust hotel
