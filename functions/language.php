@@ -8,4 +8,3 @@ if($_GET['lang'] == 'nl')
     $switch = 2;
 }
 define('HEADER_ITEM', $db->Read('header_content', 'header_title', 'lang_id = '.$switch));
-var_dump(HEADER_ITEM[0]);

@@ -1,5 +1,9 @@
 <?php
 define('DS', DIRECTORY_SEPARATOR);
+define('BASE_URL', 'http://stardust.test/');
+
+// default language
+if(!isset($_GET['lang'])) $_GET['lang'] = 'en';
 
 // require database
 require_once(implode(DS, ['database', 'db.php']));
