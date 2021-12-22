@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap'); /* Google fonts | Font lato */
+
+/* Default styling */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+/* Styles */
 body {
     font-family: 'Lato', sans-serif;
 }
@@ -27,6 +49,12 @@ header a {
     top: -7px;
     left: 0;
 }
+.main-menu a.active {
+    color: blue;
+}
+.account_menu a.active{
+    color:blue;
+}
 .lang-switch a:nth-child(1){
     position: relative;
 }
@@ -46,6 +74,8 @@ header a {
 }
 .img_header{
     height: 400px;
+    position: relative;
+    z-index: -1;
 }
 
 .ml-auto {
@@ -58,12 +88,81 @@ header a {
 .home_section {
     margin-top: -130px;
 }
+.login_section {
+    margin-top: -250px;
+}
 form {
     box-shadow: -1px 7px 10px 2px rgba(0,0,0,0.22);
 }
+.cards .card {
+    height:250px;
+    padding:20px;
+}
+.card_img, .card_img img {
+    height: 100%;
+    width: 350px;
+}
 
-::-webkit-datetime-edit-year-field:not([aria-valuenow]),
-::-webkit-datetime-edit-month-field:not([aria-valuenow]),
-::-webkit-datetime-edit-day-field:not([aria-valuenow]) {
-    color: transparent;
+.card_price span {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* Login form */
+.form-login {
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Footer */
+footer {
+    margin-top: 25px;
+    text-align: center;
+}
+footer .made-by {
+    color: red;
+    text-decoration: none;
+}
+footer .made-by:hover {
+    text-decoration: underline;
+}
+
+.account_menu {
+    position: absolute;
+    top:40px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: none;
+    white-space: nowrap;
+    padding: 7px 15px;
+}
+.account_menu a:hover {
+    text-decoration: underline;
+}
+.account {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    padding-right: 15px;
+}
+.account::before {
+    content:'';
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 10px;
+    height: 10px;
+    border-bottom:3px solid white;
+    border-right:3px solid white;
+    transform: rotate(225deg);
+    transition: transform .2s ease-in-out;
+}
+
+.account.active .account_menu{
+    display: flex;
+}
+.account.active::before {
+    transform: rotate(45deg);
 }

@@ -40,15 +40,15 @@ class DB
      * @param string $where filter rows with where; default 1
      * @return array a list of all rows of re selected table
      */
-    public function Read($table, $columns = '*', $where = '1')
+    public function Read($table, $columns = '*', $where = '1', $fetch = PDO::FETCH_ASSOC, $join = '')
     {
         $rows = [];
-        $query = sprintf('SELECT %2$s FROM `%1$s` WHERE %3$s', $table, $columns, $where);
+        $query = sprintf('SELECT %2$s FROM `%1$s` %4$s WHERE %3$s', $table, $columns, $where, $join);
 
         $sth = $this->db->prepare($query);
         $sth->execute();
 
-        while ($row = $sth->fetch(PDO::FETCH_COLUMN)) {
+        while ($row = $sth->fetch($fetch)) {
             $rows[] = $row;
         }
         return $rows;

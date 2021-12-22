@@ -1,8 +1,8 @@
 RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
 
 # for the js css and imgs paths
-# RewriteCond %{REQUEST_FILENAME} !-f
-# RewriteCond %{REQUEST_FILENAME} !-l
 # RewriteCond %{DOCUMENT_ROOT}/$1 -f
 # RewriteRule ^[^/]+/([^.]+\.(?:js|css|jpe?g|png|gif))$ /$1 [L,R=301,NC]
 
@@ -13,6 +13,8 @@ RewriteRule ^$ http://stardust.test/en/ [L,R=301]
 # changing ?lang=nl to pretty url 
 RewriteCond %{HTTP:Accept-Language} ^nl [NC]
 RewriteRule ^$ http://stardust.test/nl/ [L,R=301]
+
+ErrorDocument 404 /?page=404page
 
 # handles languages
 RewriteRule ^(en|nl)/?$ index.php?lang=$1 [QSA,NC,L]
